@@ -25,26 +25,27 @@ $update = json_decode(file_get_contents('php://input'));
 
 //your app
 try {
-    $frasi = array('Beatrice Ti amo', 'Sei mia', 'Mi manchi', 'Ho voglia di te', 't romp a cap', 'sei bellissima');
-    if($update->message->text == '/love')
-    {
-	$numfrase = rand(0,4);    
-    	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-    	$response = $client->sendMessage([
-        	'chat_id' => $update->message->chat->id,
-        	'text' => "$frasi[$numfrase]"
-     	]);
-    }
-    else if($update->message->text == '/help')
-    {
+    $frasi = array('Beatrice Ti amo', 'Sei mia', 'Mi manchi', 'Ho voglia di te', 't romp a cap', 'sei bellissima','Nun fa a scem',
+		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 'Sij na pret', 't chiavass maro',
+		   'mandami i piedini', 'send nudes');
+    if($update->message->text == '/start')
+   {
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
     	$response = $client->sendMessage([
     		'chat_id' => $update->message->chat->id,
-    		'text' => "List of commands :\n /email -> Get email address of the owner \n /latest -> Get latest posts of the blog 
-    		/help -> Shows list of available commands"
+    		'text' => "Ogni volta che dormo o per qualsiasi motivo non posso risponderti, scrivi \n /love"
     		]);
 
     }
+    else if($update->message->text == '/love')
+	 {
+		$numfrase = rand(0,13);    
+			$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+			$response = $client->sendMessage([
+				'chat_id' => $update->message->chat->id,
+				'text' => "$frasi[$numfrase]"
+			 ]);
+	}
 
 } catch (\Zelenin\Telegram\Bot\NotOkException $e) {
 
