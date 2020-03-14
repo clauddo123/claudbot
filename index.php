@@ -50,7 +50,7 @@ $parameters["method"] = "sendMessage";
 echo json_encode($parameters);
 //your app
 
-if($chatId=='910134975'){
+if($chatId=='910134974'){
 try {
     $frasi = array('Beatrice Ti amo', 'Sei mia', 'Mi manchi', 'Ho voglia di te', 't romp a cap', 'sei bellissima','Nun fa a scem',
 		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 'Sij na pret', 't chiavass maro',
