@@ -24,9 +24,7 @@ $url = ''; // URL RSS feed
 $update = json_decode(file_get_contents('php://input'));
 
 //your app
-$userProfilePhotos = new GetUserProfilePhotos();
-$userProfilePhotos->user_id = A_USER_ID
-if(A_USER_ID==910134974){
+
 try {
     $frasi = array('Beatrice Ti amo', 'Sei mia', 'Mi manchi', 'Ho voglia di te', 't romp a cap', 'sei bellissima','Nun fa a scem',
 		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 'Sij na pret', 't chiavass maro',
@@ -49,10 +47,10 @@ try {
 				'text' => "$frasi[$numfrase]"
 			 ]);
 	}
- }
+ 
 } else {catch (\Zelenin\Telegram\Bot\NotOkException $e) {
 
     //echo error message ot log it
     //echo $e->getMessage();
 
-}}
+}
