@@ -1,7 +1,5 @@
 <?php
 
-<?php
-
 /*
 * This file is part of GeeksWeb Bot (GWB).
 *
@@ -56,3 +54,4 @@ try {
     //echo $e->getMessage();
 
 }
+?>
