@@ -25,12 +25,13 @@ $update = json_decode(file_get_contents('php://input'));
 
 //your app
 try {
+    $frasi = array('Beatrice Ti amo', 'Sei mia', 'Mi manchi', 'Ho voglia di te', 't romp a cap', 'sei bellissima');
     if($update->message->text == '/love')
     {
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
     	$response = $client->sendMessage([
         	'chat_id' => $update->message->chat->id,
-        	'text' => "prova"
+        	'text' => "$frasi[2]"
      	]);
     }
     else if($update->message->text == '/help')
