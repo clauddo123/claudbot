@@ -32,7 +32,7 @@ try {
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
     	$response = $client->sendMessage([
         	'chat_id' => $update->message->chat->id,
-        	'text' => $frasi[$rand];
+        	'text' => echo"$frasi[$rand]";
      	]);
     }
     else if($update->message->text == '/help')
