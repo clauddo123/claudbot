@@ -28,10 +28,11 @@ try {
     $frasi = array('Beatrice Ti amo', 'Sei mia', 'Mi manchi', 'Ho voglia di te', 't romp a cap', 'sei bellissima');
     if($update->message->text == '/love')
     {
+	$numfrase = rand(0,4);    
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
     	$response = $client->sendMessage([
         	'chat_id' => $update->message->chat->id,
-        	'text' => "$frasi[2]"
+        	'text' => "$frasi[$numfrase]"
      	]);
     }
     else if($update->message->text == '/help')
@@ -43,31 +44,6 @@ try {
     		/help -> Shows list of available commands"
     		]);
 
-    }
-    else if($update->message->text == '/latest')
-    {
-    		Feed::$cacheDir 	= __DIR__ . '/cache';
-			Feed::$cacheExpire 	= '5 hours';
-			$rss 		= Feed::loadRss($url);
-			$items 		= $rss->item;
-			$lastitem 	= $items[0];
-			$lastlink 	= $lastitem->link;
-			$lasttitle 	= $lastitem->title;
-			$message = $lasttitle . " \n ". $lastlink;
-			$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-			$response = $client->sendMessage([
-					'chat_id' => $update->message->chat->id,
-					'text' => $message
-				]);
-
-    }
-    else
-    {
-    	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-    	$response = $client->sendMessage([
-    		'chat_id' => $update->message->chat->id,
-    		'text' => "Invalid command, please use /help to get list of available commands"
-    		]);
     }
 
 } catch (\Zelenin\Telegram\Bot\NotOkException $e) {
