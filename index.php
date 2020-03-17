@@ -28,7 +28,8 @@ $update = json_decode(file_get_contents('php://input'));
 try {
     $frasi = array('Beatrice Ti amo', 'Sei mia', 'Mi manchi', 'Ho voglia di te', 't romp a cap', 'sei bellissima','Nun fa a scem',
 		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 'Sij na pret', 't chiavass maro',
-		   'mandami i piedini', 'send nudes');
+		   'mandami i piedini', 'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me', 'famm nu bucchin',
+		  '>//< can i fuck you 👉👈' );
     if($update->message->text == '/start')
    {
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
@@ -40,7 +41,7 @@ try {
     }
     else if($update->message->text == '/love')
 	 {
-		$numfrase = rand(0,13);    
+		$numfrase = rand(0,17);    
 			$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
 			$response = $client->sendMessage([
 				'chat_id' => $update->message->chat->id,
