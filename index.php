@@ -31,7 +31,7 @@ try {
 		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 'Sij na pret', 't chiavass maro',
 		   'mandami i piedini', 'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me', 'famm nu bucchin',
           '>//< can i fuck you 👉👈' );
-          $img = curl_file_create('UWU143.png','image/png');
+          $img = curl_file_create('UWU143.PNG','image/png');
           switch($update->message->text)
           {
             case "/start":
