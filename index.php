@@ -34,7 +34,12 @@ try {
                   "https://www.quotidianodipuglia.it/photos/HIGH/10/24/3981024_1006_gattino.jpg",
                   "https://t1.ea.ltmcdn.com/it/images/1/6/0/img_come_aiutare_un_gattino_a_defecare_1061_orig.jpg",
                   "https://cdn.thinglink.me/api/image/891410916787093506/1240/10/scaletowidth",
-                  "https://www.cremazioneanimali.cloud/wp-content/uploads/2019/09/gattino-occhi-blu-steso.jpg",   
+                  "https://www.cremazioneanimali.cloud/wp-content/uploads/2019/09/gattino-occhi-blu-steso.jpg",
+                  "https://www.quotidianodipuglia.it/photos/MED/53/84/4135384_1329_9c1b9b08ed_5743940_med.jpg", 
+                  "https://www.adnkronos.com/rf/image_size_400x300/Pub/AdnKronos/Assets/Immagini/gattino.png",
+                  "https://i1.wp.com/liguriaoggi.it/wp-content/uploads/2019/11/gattino.jpg?resize=300%2C200&ssl=1",
+                  "https://www.amicimici.com/wp-content/uploads/2016/05/video-di-gattini-giocherelloni-e.jpg",
+                  "https://besthqwallpapers.com/Uploads/9-1-2019/77006/thumb2-ginger-kitten-small-cute-animal-pet-cats-cute-kittens.jpg"  
                 );
     $frasifoto = array('miao','musetto','coccoline','uwu',':(');            
           switch($update->message->text)
@@ -158,8 +163,9 @@ try {
             break;
 
             case "/foto":
-		$numfrase = rand(0,4);
-                 $numfrase2 = rand(0,4);
+                $num = sizeof($foto);
+		        $numfrase = rand(0,$num);
+                $numfrase2 = rand(0,4);
                 $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'upload_photo']);
                 $response = $client->sendPhoto
                 ([
