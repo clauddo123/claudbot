@@ -29,33 +29,19 @@ try {
     $frasi = array('Beatrice Ti amo', 'Sei mia', 'Mi manchi', 'Ho voglia di te', 't romp a cap', 'sei bellissima','Nun fa a scem',
 		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 'Sij na pret', 't chiavass maro',
 		   'mandami i piedini', 'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me', 'famm nu bucchin',
-		  '>//< can i fuck you 👉👈' );
-    if($update->message->text == '/start')
-   {
-    	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-    	$response = $client->sendMessage([
-    		'chat_id' => $update->message->chat->id,
-    		'text' => "Ogni volta che dormo o per qualsiasi motivo non posso risponderti, scrivi \n /love"
-    		]);
-
-    }
-    else if($update->message->text == '/love')
-	 {
-		$numfrase = rand(0,17);    
-			$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-			$response = $client->sendMessage([
-				'chat_id' => $update->message->chat->id,
-				'text' => "$frasi[$numfrase]"
-			 ]);
-    }
-    else if($update->message->text == "/foto")
-    {
-            $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'upload_photo']);
-            $response = $client->sendPhoto([
-            'chat_id' => $update->message->chat->id,
-            'photo' => "https://www.miciogatto.it/new/wp-content/uploads/2015/10/image2-1-1030x801.jpeg";
-        ]);
-    }
+          '>//< can i fuck you 👉👈' );
+          switch($update->message->text)
+          {
+            case "/start":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "Ogni volta che dormo o per qualsiasi motivo non posso risponderti, scrivi \n /love"
+                ]);
+            break;
+            
+          }
  
 }  catch (\Zelenin\Telegram\Bot\NotOkException $e) {
 
