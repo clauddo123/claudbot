@@ -214,7 +214,7 @@ try {
                 $response = $client->sendPoll
             ([
                 'chat_id'=> $update->message->chat->id,
-                'question'=>"Domanda Test",
+                'question'=>'Domanda Test',
                 'options' => json_encode($risposte)
             ]);
             break;
