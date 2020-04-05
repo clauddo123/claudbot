@@ -1,17 +1,25 @@
 <?php
-$token = "1110097195:AAH7k0k1yvZUNCM_PXrXfT7-wpmaUvukpoM";
-$website = "https://api.telegram.org/bot".$token;
-$update = file_get_contents('php://input');
-$update = json_decode($update,TRUE);
+require 'vendor/autoload.php';
+$client = new Zelenin\Telegram\Bot\Api('732134924:AAGwBsUCeaxlEyHdkC_TpCIG-XkCQwI69eU'); // Set your access token
+$url = ''; // URL RSS feed
+$update = json_decode(file_get_contents('php://input'));
 
-$chatid = $update['message']['chat']['id'];
-$text = $update['message']['text'];
+try
+    {
+        $chatid = $update['message']['from']['id'];
+        $text = $update['message']['text'];
+        sendMessage($chatid,"ciao");
+    }
+    catch(\Zelenin\Telegram\Bot\NotOkException $e)
+    {
 
-sendMessage($chatid, "ciao");
+    //echo error message ot log it
+    //echo $e->getMessage();
 
+    }
 function sendMessage($chatid, $text)
 {
-    $url = $website."/sendMessage?chat_id=$chatid&text=".urlencode($text);
+    $url = $web."/sendMessage?chat_id=$chatid&text=".urlencode($text);
     file_get_contents($url);
 }
 ?>
