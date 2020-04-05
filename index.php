@@ -29,7 +29,8 @@ $update = json_decode(file_get_contents('php://input'));
 try {
     $frasi = array('Beatrice Ti amo', 'Sei mia', 'Mi manchi', 'Ho voglia di te', 't romp a cap', 'sei bellissima','Nun fa a scem',
 		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 't chiavass maro',
-		    'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me' );
+		    'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me', 
+ );
     $foto = array("https://www.miciogatto.it/new/wp-content/uploads/2015/10/image2-1-1030x801.jpeg",
                   "https://www.quotidianodipuglia.it/photos/HIGH/10/24/3981024_1006_gattino.jpg",
                   "https://t1.ea.ltmcdn.com/it/images/1/6/0/img_come_aiutare_un_gattino_a_defecare_1061_orig.jpg",
@@ -49,7 +50,7 @@ try {
             break;
            
             case "/love":
-                $numfrase = rand(0,13);    
+                $numfrase = rand(0,17);    
 			    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
                 $response = $client->sendMessage
                 ([
@@ -57,79 +58,7 @@ try {
 				    'text' => "$frasi[$numfrase]"
                 ]);  
             break;
-            
-            case "mi manchi":
-			    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-                $response = $client->sendMessage
-                ([
-				    'chat_id' => $update->message->chat->id,
-				    'text' => "anche tu amore"
-                ]);  
-            break;
-
-            case "ti amo":
-			    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-                $response = $client->sendMessage
-                ([
-				    'chat_id' => $update->message->chat->id,
-				    'text' => "io di più"
-                ]);  
-            break;
-
-            case "sei mio":
-			    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-                $response = $client->sendMessage
-                ([
-				    'chat_id' => $update->message->chat->id,
-				    'text' => "solo tuo cucc"
-                ]);  
-            break;
-
-            case "svegliati":
-			    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-                $response = $client->sendMessage
-                ([
-				    'chat_id' => $update->message->chat->id,
-				    'text' => "sto durmenn nun rompr o cazz"
-                ]);  
-            break;
-
-            case "down":
-			    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-                $response = $client->sendMessage
-                ([
-				    'chat_id' => $update->message->chat->id,
-				    'text' => "semp tu"
-                ]);  
-            break;
-
-            case "uff":
-			    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-                $response = $client->sendMessage
-                ([
-				    'chat_id' => $update->message->chat->id,
-				    'text' => "cr e amo"
-                ]);  
-            break;
-
-            case "no tu":
-			    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-                $response = $client->sendMessage
-                ([
-				    'chat_id' => $update->message->chat->id,
-				    'text' => "no tu"
-                ]);  
-            break;
-
-            case "no io":
-			    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-                $response = $client->sendMessage
-                ([
-				    'chat_id' => $update->message->chat->id,
-				    'text' => "no io"
-                ]);  
-            break;
-
+        
             case "/foto":
                 $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'upload_photo']);
                 $response = $client->sendPhoto
