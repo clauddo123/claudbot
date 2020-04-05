@@ -216,7 +216,7 @@ try {
                     'chat_id'=> $update->message->chat->id,
                     'question'=>"Mi ami?",
                     'options' => $risposte
-                ])
+                ]);
             break;
             
             case "/foto":
