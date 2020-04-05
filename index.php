@@ -1,4 +1,3 @@
-
 <?php
 
 /*
@@ -42,7 +41,7 @@ try {
                   "https://besthqwallpapers.com/Uploads/9-1-2019/77006/thumb2-ginger-kitten-small-cute-animal-pet-cats-cute-kittens.jpg"  
                 );
     $frasifoto = array('miao','musetto','coccoline','uwu',':('); 
-    $risposte = array('si','no');  
+    
           switch($update->message->text)
           {
             case "/start":
@@ -210,11 +209,14 @@ try {
             break;
 
             case "/domanda":
-                $data = [      'chat_id' => $update->message->chat->id,
-                               'question' => 'This is whose number 12345 ?',  
-                               'options' => json_encode($risposte) 
-                        ];  
-                  $response = file_get_contents("https://api.telegram.org/bot$apiToken/sendPoll?" . http_build_query($data) );
+                $risposte = array('si','no'); 
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendPoll
+            ([
+                'chat_id'=> $update->message->chat->id,
+                'question'=>"Domanda Test",
+                'options' => json_encode($risposte)
+            ]);
             break;
 
             case "/foto":
