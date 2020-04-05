@@ -211,14 +211,14 @@ try {
             break;
 
             case "/domanda":
-                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-                $response = $client->sendPoll
-		([
+                    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                    $response = $client->sendPoll([
                     'chat_id'=> $update->message->chat->id,
                     'question'=>"Mi ami?",
                     'options' => $risposte
-                ]);
-
+                ])
+            break;
+            
             case "/foto":
                 $num = sizeof($foto);
 		        $numfrase = rand(0,$num-1);
@@ -233,8 +233,6 @@ try {
                     ]);
             break;
           }
-
- 
 }  catch (\Zelenin\Telegram\Bot\NotOkException $e) {
 
     //echo error message ot log it
