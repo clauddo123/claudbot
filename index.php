@@ -31,6 +31,7 @@ try {
 		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 'Sij na pret', 't chiavass maro',
 		   'mandami i piedini', 'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me', 'famm nu bucchin',
           '>//< can i fuck you 👉👈' );
+          $img = curl_file_create('UWU143.png','image/png');
           switch($update->message->text)
           {
             case "/start":
@@ -51,7 +52,17 @@ try {
 				    'text' => "$frasi[$numfrase]"
                 ]);  
             break;
+            
+            case "/foto":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'upload_photo']);
+                $response = $client->sendPhoto
+                ([
+                    'chat_id' => $update->message->chat->id,
+                    'photo' => $img;
+                ]);
+            break;
           }
+
  
 }  catch (\Zelenin\Telegram\Bot\NotOkException $e) {
 
