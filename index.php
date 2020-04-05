@@ -48,7 +48,7 @@ try {
 				'text' => "$frasi[$numfrase]"
 			 ]);
     }
-    elseif($update->message->text == "/foto")
+    else if($update->message->text == "/foto")
     {
             $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'upload_photo']);
             $response = $client->sendPhoto([
