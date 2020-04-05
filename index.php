@@ -30,7 +30,7 @@ try {
 		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 'Sij na pret', 't chiavass maro',
 		   'mandami i piedini', 'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me', 'famm nu bucchin',
 		  '>//< can i fuck you 👉👈' );
-    if($update->message->text == '/start')
+    if($update->message->text == 'uwu')
    {
     	$response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
     	$response = $client->sendMessage([
@@ -48,8 +48,9 @@ try {
 				'text' => "$frasi[$numfrase]"
 			 ]);
 	}
- elseif($update->message->text == "foto")
+ elseif($update->message->text == "/foto")
     {
+	 $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
        	 $response = $client->sendPhoto([
             'chat_id' => $update->message->chat->id,
             'photo' => "https://www.miciogatto.it/new/wp-content/uploads/2015/10/image2-1-1030x801.jpeg";
