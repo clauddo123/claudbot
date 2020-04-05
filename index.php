@@ -28,9 +28,8 @@ $update = json_decode(file_get_contents('php://input'));
 
 try {
     $frasi = array('Beatrice Ti amo', 'Sei mia', 'Mi manchi', 'Ho voglia di te', 't romp a cap', 'sei bellissima','Nun fa a scem',
-		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 'Sij na pret', 't chiavass maro',
-		   'mandami i piedini', 'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me', 'famm nu bucchin',
-          '>//< can i fuck you 👉👈' );
+		   'Come faccio senza di te','Non lasciarmi :(','I need you so much',
+		   'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me');
     $foto = array("https://www.miciogatto.it/new/wp-content/uploads/2015/10/image2-1-1030x801.jpeg",
                   "https://www.quotidianodipuglia.it/photos/HIGH/10/24/3981024_1006_gattino.jpg",
                   "https://t1.ea.ltmcdn.com/it/images/1/6/0/img_come_aiutare_un_gattino_a_defecare_1061_orig.jpg",
@@ -50,13 +49,112 @@ try {
             break;
            
             case "/love":
-                $numfrase = rand(0,17);    
+                $numfrase = rand(0,12);    
 			    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
                 $response = $client->sendMessage
                 ([
 				    'chat_id' => $update->message->chat->id,
 				    'text' => "$frasi[$numfrase]"
                 ]);  
+            break;
+
+            case "amo noi":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "amo noi"
+                ]);
+            break;
+
+            case "ti amo":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "io di più"
+                ]);
+            break;
+
+            case "no io":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "no io stronza"
+                ]);
+            break;
+
+            case "no tu":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "no tu"
+                ]);
+            break;
+
+            case "mi manchi":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "anche tu amore"
+                ]);
+            break;
+
+            case "sei mio":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "solo tuo babe"
+                ]);
+            break;
+
+            case "svegliati":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "nun rompr o cazz amo"
+                ]);
+            break;
+
+            case "amo mi ha scritto uno":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "rispondigli e ti sparo in testa"
+                ]);
+            break;
+
+            case "che fai":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "dormo e ti sogno"
+                ]);
+            break;
+
+            case "down":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "t spacc"
+                ]);
+            break;
+
+            case "che palle":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "stai zitta hai anche il coraggio di lamentarti"
+                ]);
             break;
 
             case "/foto":
