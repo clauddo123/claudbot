@@ -210,12 +210,13 @@ try {
 
             case "/domanda":
                 $risposte = array('si','no'); 
-            $data=([
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => '']);
+                $response = $client->sendPoll
+            ([
                 'chat_id'=> $update->message->chat->id,
                 'question'=>'Domanda Test',
                 'options' => json_encode($risposte)
             ]);
-            $response = file_get_contents("https://api.telegram.org/bot$apiToken/sendMessage?" . http_build_query($data) );
             break;
 
             case "/foto":
