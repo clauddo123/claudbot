@@ -164,7 +164,7 @@ try {
 
             case "/foto":
                 $num = sizeof($foto);
-		        $numfrase = rand(0,$num);
+		$numfrase = rand(0,$num-1);
                 $numfrase2 = rand(0,4);
                 $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'upload_photo']);
                 $response = $client->sendPhoto
