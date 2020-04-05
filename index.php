@@ -41,7 +41,9 @@ try {
                   "https://www.amicimici.com/wp-content/uploads/2016/05/video-di-gattini-giocherelloni-e.jpg",
                   "https://besthqwallpapers.com/Uploads/9-1-2019/77006/thumb2-ginger-kitten-small-cute-animal-pet-cats-cute-kittens.jpg"  
                 );
-    $frasifoto = array('miao','musetto','coccoline','uwu',':(');            
+    $frasifoto = array('miao','musetto','coccoline','uwu',':('); 
+    $risposte = array('si','no');
+    $risposte = serialize($risposte);         
           switch($update->message->text)
           {
             case "/start":
@@ -49,7 +51,7 @@ try {
                 $response = $client->sendMessage
                 ([
     		        'chat_id' => $update->message->chat->id,
-    		        'text' => "Ogni volta che dormo o per qualsiasi motivo non posso risponderti, scrivi \n /love"
+                    'text' => "Ogni volta che dormo o per qualsiasi motivo non posso risponderti, scrivi qui."
                 ]);
             break;
            
@@ -162,9 +164,63 @@ try {
                 ]);
             break;
 
+            case "claudio":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "non è come sembra amo"
+                ]);
+            break;
+
+            case "cucciolo":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "cucciolina :("
+                ]);
+            break;
+
+            case "sei autistico":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "maro ti uccido"
+                ]);
+            break;
+            
+
+            case "ti voglio":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "anch'io stupidina"
+                ]);
+            break;
+
+            case "ti penso":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+    		        'chat_id' => $update->message->chat->id,
+    		        'text' => "ti sto pensando anch'io baby ♥"
+                ]);
+            break;
+
+            case "/domanda":
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendPoll([
+                    'chat_id'=> $update->message->chat->date,
+                    'question'=>"Mi ami?",
+                    'options' => $risposte;
+                ])
+
             case "/foto":
                 $num = sizeof($foto);
-		$numfrase = rand(0,$num-1);
+		        $numfrase = rand(0,$num-1);
                 $numfrase2 = rand(0,4);
                 $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'upload_photo']);
                 $response = $client->sendPhoto
