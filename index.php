@@ -31,7 +31,7 @@ try {
 		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 'Sij na pret', 't chiavass maro',
 		   'mandami i piedini', 'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me', 'famm nu bucchin',
           '>//< can i fuck you 👉👈' );
-          $img = curl_file_create('UWU143.PNG','image/png');
+          $img = 'UWU143.PNG';
           switch($update->message->text)
           {
             case "/start":
@@ -58,8 +58,9 @@ try {
                 $response = $client->sendPhoto
                 ([
                     'chat_id' => $update->message->chat->id,
-                    'photo' => $img
-                ]);
+                    'photo' => "https://www.miciogatto.it/new/wp-content/uploads/2015/10/image2-1-1030x801.jpeg",
+                    'caption' => "miao"
+                    ]);
             break;
           }
 
