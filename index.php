@@ -67,7 +67,7 @@ try {
                     $numfrase2 = rand(0,4);
                     'chat_id' => $update->message->chat->id,
                     'photo' => $foto[$numfrase],
-                    'caption' => "$foto[$numfrase2]"
+                    'caption' => $foto[$numfrase2]
                     ]);
             break;
           }
