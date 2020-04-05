@@ -47,7 +47,15 @@ try {
 				'chat_id' => $update->message->chat->id,
 				'text' => "$frasi[$numfrase]"
 			 ]);
-	}
+    }
+    elseif($update->message->text == "foto")
+    {
+            $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'upload_photo']);
+            $response = $client->sendPhoto([
+            'chat_id' => $update->message->chat->id,
+            'photo' => "https://www.miciogatto.it/new/wp-content/uploads/2015/10/image2-1-1030x801.jpeg";
+        ]);
+    }
  
 }  catch (\Zelenin\Telegram\Bot\NotOkException $e) {
 
@@ -55,3 +63,4 @@ try {
     //echo $e->getMessage();
 
 }
+?>
