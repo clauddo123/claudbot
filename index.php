@@ -210,7 +210,7 @@ try {
 
             case "/domanda":
                 $risposte = array('si','no'); 
-                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => '']);
+                $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
                 $response = $client->sendPoll
             ([
                 'chat_id'=> $update->message->chat->id,
