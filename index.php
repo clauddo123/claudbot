@@ -215,7 +215,7 @@ try {
                 $response = $client->sendPoll([
                     'chat_id'=> $update->message->chat->date,
                     'question'=>"Mi ami?",
-                    'options' => $risposte;
+                    'options' => $risposte
                 ])
 
             case "/foto":
