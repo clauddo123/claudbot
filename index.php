@@ -42,7 +42,7 @@ try {
                   "https://besthqwallpapers.com/Uploads/9-1-2019/77006/thumb2-ginger-kitten-small-cute-animal-pet-cats-cute-kittens.jpg"  
                 );
     $frasifoto = array('miao','musetto','coccoline','uwu',':('); 
-    $risposte = array('si','no');
+    $risposte = array('si','no');  
           switch($update->message->text)
           {
             case "/start":
@@ -211,13 +211,14 @@ try {
 
             case "/domanda":
                     $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-                    $response = $client->sendPoll([
+                    $response = $client->sendPoll
+                ([
                     'chat_id'=> $update->message->chat->id,
                     'question'=>"Mi ami?",
-                    'options' => $risposte
+                    'options' => serialize($risposte)
                 ]);
             break;
-            
+
             case "/foto":
                 $num = sizeof($foto);
 		        $numfrase = rand(0,$num-1);
