@@ -43,7 +43,6 @@ try {
                 );
     $frasifoto = array('miao','musetto','coccoline','uwu',':('); 
     $risposte = array('si','no');
-    $risposte = urlencode($risposte);       
           switch($update->message->text)
           {
             case "/start":
