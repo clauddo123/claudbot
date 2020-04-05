@@ -60,14 +60,15 @@ try {
             break;
 
             case "/foto":
+		$numfrase = rand(0,4);
+                 $numfrase2 = rand(0,4);
                 $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'upload_photo']);
                 $response = $client->sendPhoto
                 ([
-                    $numfrase = rand(0,4);
-                    $numfrase2 = rand(0,4);
+                
                     'chat_id' => $update->message->chat->id,
-                    'photo' => $foto[$numfrase],
-                    'caption' => $foto[$numfrase2]
+                    'photo' => "$foto[$numfrase]",
+                    'caption' => "$frasifoto[$numfrase2]"
                     ]);
             break;
           }
