@@ -1,3 +1,30 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@clauddo123 
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+clauddo123
+/
+claudbot
+1
+00
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
+claudbot/index.php /
+@clauddo123 clauddo123 Update index.php
+1df1295 now
+52 lines (44 sloc)  1.83 KB
+  
+Code navigation is available!
+Navigate your code with ease. Click on function and method calls to jump to their definitions or references in the same repository. Learn more
+
 <?php
 
 /*
@@ -40,7 +67,16 @@ try {
     		        'text' => "Ogni volta che dormo o per qualsiasi motivo non posso risponderti, scrivi \n /love"
                 ]);
             break;
-            
+           
+            case "/love":
+                $numfrase = rand(0,17);    
+			    $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
+                $response = $client->sendMessage
+                ([
+				    'chat_id' => $update->message->chat->id,
+				    'text' => "$frasi[$numfrase]"
+                ]);  
+            break;
           }
  
 }  catch (\Zelenin\Telegram\Bot\NotOkException $e) {
@@ -50,3 +86,15 @@ try {
 
 }
 ?>
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
