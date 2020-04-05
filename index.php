@@ -68,7 +68,7 @@ try {
                 
                     'chat_id' => $update->message->chat->id,
                     'photo' => "$foto[$numfrase]",
-                    'caption' => "$foto[$numfrase2]"
+                    'caption' => "$frasifoto[$numfrase2]"
                     ]);
             break;
           }
