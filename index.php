@@ -43,7 +43,7 @@ try {
                 );
     $frasifoto = array('miao','musetto','coccoline','uwu',':('); 
     $risposte = array('si','no');
-    $risposte = serialize($risposte);         
+    $risposte = urlencode($risposte);       
           switch($update->message->text)
           {
             case "/start":
