@@ -212,11 +212,12 @@ try {
 
             case "/domanda":
                 $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'typing']);
-                $response = $client->sendPoll([
+                $response = $client->sendPoll
+		([
                     'chat_id'=> $update->message->chat->id,
                     'question'=>"Mi ami?",
                     'options' => $risposte
-                ])
+                ]);
 
             case "/foto":
                 $num = sizeof($foto);
