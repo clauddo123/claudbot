@@ -215,7 +215,7 @@ try {
                 ([
                     'chat_id'=> $update->message->chat->id,
                     'question'=>"Mi ami?",
-                    'options' => serialize($risposte)
+                    'options' => json_encode($risposte)
                 ]);
             break;
 
