@@ -28,9 +28,9 @@ $update = json_decode(file_get_contents('php://input'));
 
 try {
     $frasi = array('Beatrice Ti amo', 'Sei mia', 'Mi manchi', 'Ho voglia di te', 't romp a cap', 'sei bellissima','Nun fa a scem',
-		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 't chiavass maro',
-		    'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me', 
- );
+		   'Come faccio senza di te','Non lasciarmi :(','I need you so much', 'Sij na pret', 't chiavass maro',
+		   'mandami i piedini', 'send nudes', 'beatrice si tropp sfaccimm bell marò', 't vogl ca cu me', 'famm nu bucchin',
+          '>//< can i fuck you 👉👈' );
     $foto = array("https://www.miciogatto.it/new/wp-content/uploads/2015/10/image2-1-1030x801.jpeg",
                   "https://www.quotidianodipuglia.it/photos/HIGH/10/24/3981024_1006_gattino.jpg",
                   "https://t1.ea.ltmcdn.com/it/images/1/6/0/img_come_aiutare_un_gattino_a_defecare_1061_orig.jpg",
@@ -58,7 +58,7 @@ try {
 				    'text' => "$frasi[$numfrase]"
                 ]);  
             break;
-        
+
             case "/foto":
                 $response = $client->sendChatAction(['chat_id' => $update->message->chat->id, 'action' => 'upload_photo']);
                 $response = $client->sendPhoto
