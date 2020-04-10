@@ -208,15 +208,15 @@ try {
                 ]);
             break;
 
-             case "/domanda":
+                case "/domanda":
                 $risposte = array('si','no');
-                $data = ['chat_id' => $update->message->chat->id,   
+                $data = ['chat_id' => '@ClaudDoMood',   
                          'question' => 'Mi ami?',
                          'options' => json_encode($options)
                         ];
                 $response = file_get_contents("https://api.telegram.org/bot732134924:AAGwBsUCeaxlEyHdkC_TpCIG-XkCQwI69eU/sendMessage?" . http_build_query($data) );
 
-            break;
+           	 break;
 
             case "/foto":
                 $num = sizeof($foto);
