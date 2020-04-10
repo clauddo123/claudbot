@@ -210,11 +210,11 @@ try {
 
                 case "/domanda":
                 $risposte = array('si','no');
-                $data = ['chat_id' => '@ClaudDoMood',   
+                $data = ['chat_id' => $update->message->chat->id,   
                          'question' => 'Mi ami?',
                          'options' => json_encode($options)
                         ];
-                $response = file_get_contents("https://api.telegram.org/bot732134924:AAGwBsUCeaxlEyHdkC_TpCIG-XkCQwI69eU/sendMessage?" . http_build_query($data) );
+                $response2 = file_get_contents("https://api.telegram.org/bot732134924:AAGwBsUCeaxlEyHdkC_TpCIG-XkCQwI69eU/sendMessage?" . http_build_query($data) );
 
            	 break;
 
